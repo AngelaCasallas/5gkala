@@ -1,0 +1,12 @@
+@font-face{
+    font-family: ATTFont;
+    src: url(ATTAleckSans_Rg.ttf);
+}
+h1 {
+    font-family: ATTFont;
+    color: #009edb;
+}
+P {
+    font-family: ATTFont;
+
+}
