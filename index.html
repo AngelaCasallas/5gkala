@@ -7,7 +7,20 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
-    <h1>Welcome to ATT&T 5G Technology!</h1>
+    <!-- simple navigation -->
+    <nav>
+        <ul>
+          <li><a href="https://www.att.com/" target="_blank">Home</a></li>
+          <li><a href="https://www.att.com/connecttochange/" target="_blank">Why AT&T</a></li>
+          <li><a href="https://www.att.com/support/" target="_blank">Support</a></li>
+          <li><a href="https://www.att.com/support/contact-us/" target="_blank">Contact</a></li>
+        </ul>
+      </nav>
+      
+    <!-- simple navigation html ends -->
+
+
+    <h1>Welcome to AT&T 5G Technology!</h1>
     <p> This is the 5G coverage in my location.</p>
     <div id="mapid" style="width: 100%; height: 500px;"></div>
     <script>
@@ -37,6 +50,36 @@
             console.log("Location is not supported by this browser.");
         }
     </script>
+
+<!-- section describing the services AT&T offers -->
+
+  <section class="the--services">
+    <h1 class="section__title">Info about AT&T</h1>
+    
+    <div class="services">
+        
+        <div class="service">
+            <h2>What is 5G?</h2>
+            <p>5G is the fifth-generation technology standard for broadband cellular networks, which cellular phone companies began deploying worldwide in 2019, and is the planned successor to the 4G networks which provide connectivity to most current cellphones. </p>
+        </div> <!-- close service -->
+        
+        <div class="service">
+            <h2>What is Fiber?</h2>
+            <p>Fiber-optic communication is a method of transmitting information from one place to another by sending pulses of infrared light through an optical fiber. The light is a form of carrier wave that is modulated to carry information.</p>
+        </div> <!-- close service -->
+    
+        <div class="service">
+            <h2>Why Choose AT&T?</h2>
+            <p>People are on the move and the need for connectivity moves with us. AT&T 5G helps communities stay connected to fast, reliable and secure mobile experiences to help simplify, enhance and change lives.  </p>
+        </div> <!-- close service -->
+    </div> <!-- close services -->
+    <!--button to sign up-->
+    <a href="https://www.att.com/why-att/" target="_blank" class="btn">Learn More</a>
+</section>
+
+
+
+
 </body>
 
 </html>
