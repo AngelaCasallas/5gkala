@@ -20,6 +20,10 @@ Introduction </br>
     Lillie - 3rd Year at University of The People </br>
     Amani Jackson - 3rd Year at University of Texas - San Antonio </br> </br>
 How to Run the Program </br>
-    filler </br> </br>
+    Opening the index HTML file in a web browser. 
+    To see the map feature, the location needs to be enabled in the browser. </br> </br>
 What are the Key Frameworks that you are using
-    filler </br> </br>
+    Our project is using HTML, CSS and JavaScript. If we require to use a framework for the frontend, we might use Boostrap to improve the styling.
+    We are using Leaflet Library to create the interactive map.
+    We are planning to create an API to connect to a database where we can get the 5G coverage in US in real time using NodeJS framework.
+     </br> </br>
