@@ -20,7 +20,7 @@
     <!-- simple navigation html ends -->
 
 
-    <h1>Welcome to AT&T 5G Technology!</h1>
+    <h1 class="section__title">Welcome to AT&T 5G Technology!</h1>
     <p class="subtitle_map"> This is the 5G coverage in your location.</p>
     <div id="mapid" style="width: 100%; height: 500px;"></div>
     <script>
@@ -35,8 +35,8 @@
                     attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
                     maxZoom: 18
                 }).addTo(mymap);
-                // adding 5G Coverage in my area
-                // Design from ATT resources, colors
+                // adding 5G Coverage in specific area
+                // Design from AT&T resources, colors
                 L.circle([lat, lng], {
                     color: 'orange',
                     fillColor: '#FFB000',
