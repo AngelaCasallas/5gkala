@@ -6,7 +6,7 @@ body{
     font-family: ATTFont;
     src: url(ATTAleckSans_Rg.ttf);
 }
-h1, h2 {
+h1, h2, h3{
     font-family: ATTFont;
     color: #009edb;
     text-align: center;
