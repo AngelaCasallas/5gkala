@@ -6,23 +6,70 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+		function changeLanguage() {
+			var langSelect = document.getElementById("lang-select");
+			var lang = langSelect.value;
+			var englishElems = document.querySelectorAll(".en");
+			var spanishElems = document.querySelectorAll(".es");
+			
+			if (lang === "en") {
+				hideElements(spanishElems);
+				showElements(englishElems);
+			} else {
+				hideElements(englishElems);
+				showElements(spanishElems);
+			}
+		}
+		
+		function hideElements(elems) {
+			for (var i = 0; i < elems.length; i++) {
+				elems[i].style.display = "none";
+			}
+		}
+		
+		function showElements(elems) {
+			for (var i = 0; i < elems.length; i++) {
+				elems[i].style.display = "block";
+			}
+		}
+	</script>
+
 </head>
 <body>
+    <select id="lang-select" onchange="changeLanguage()">
+		<option value="en">English</option>
+		<option value="es">Español</option>
+	</select>
+
     <!-- simple navigation -->
     <nav>
         <ul>
-          <li><a class="nav-link" href="https://www.att.com/" target="_blank">Home</a></li>
-          <li><a class="nav-link" href="https://www.att.com/connecttochange/" target="_blank">Why AT&T</a></li>
-          <li><a class="nav-link" href="https://www.att.com/support/" target="_blank">Support</a></li>
-          <li><a class="nav-link" href="https://www.att.com/support/contact-us/" target="_blank">Contact</a></li>
+          <li><a class="nav-link en" href="https://www.att.com/" target="_blank">Home</a></li>
+          <li><a class="nav-link en" href="https://www.att.com/connecttochange/" target="_blank">Why AT&T</a></li>
+          <li><a class="nav-link en" href="https://www.att.com/support/" target="_blank">Support</a></li>
+          <li><a class="nav-link en" href="https://www.att.com/support/contact-us/" target="_blank">Contact</a></li>
         </ul>
+
+         <ul>
+          <li><a class="nav-link es" style="display:none;" href="https://www.att.com/" target="_blank">Inicio</a></li>
+          <li><a class="nav-link es" style="display:none;" href="https://www.att.com/connecttochange/" target="_blank">Por que AT&T</a></li>
+          <li><a class="nav-link es" style="display:none;" href="https://www.att.com/support/" target="_blank">Soporte</a></li>
+          <li><a class="nav-link es" style="display:none;" href="https://www.att.com/support/contact-us/" target="_blank">Contacto</a></li>
+        </ul>
+
       </nav>
       
     <!-- simple navigation html ends -->
 
 
-    <h1 class="section__title" style="text-align:center;">Welcome to AT&T 5G Technology!</h1>
-    <p style="text-align:center;"> This is the 5G coverage in your location.</p>
+    <h1 class="section__title en" style="text-align:center;">Welcome to AT&T 5G Technology!</h1>
+    <h1 class="section__title es" style="text-align:center;display:none;">Bienvenido a la tecnologia 5G de AT&T!</h1>
+    
+    <p class="en" style="text-align:center;"> This is the 5G coverage in your selected location.</p>
+    <p class="es" style="text-align:center;display:none;"> Covertura 5G segun el lugar elegido.</p>
+
     <div id="mapid" style="width: 100%; height: 500px;"></div>
     <script>
         if (navigator.geolocation) {
@@ -55,32 +102,56 @@
 <!-- section describing the services AT&T offers -->
 
   <section class="the--services">
-    <h1 class="section__title">Info about AT&T</h1>
-    
+    <h1 class="section__title en">Info about AT&T</h1>
+    <h1 class="section__title es" style="display:none;">Infomacion acerca de AT&T</h1>
+
     <div class="services">
         
-        <div class="service">
+        <div class="service en">
             <h2>What is 5G?</h2>
             <p>5G is the fifth-generation technology standard for broadband cellular networks, which cellular phone companies began deploying worldwide in 2019, and is the planned successor to the 4G networks which provide connectivity to most current cellphones. </p>
         </div> <!-- close service -->
+
+        <div class="service es" style="display:none;">
+            <h2>Que es 5G?</h2>
+            <p>5G es el estándar de tecnología de quinta generación para redes celulares de banda ancha, que las compañías de telefonía celular comenzaron a implementar en todo el mundo en 2019, y es el sucesor planificado de las redes 4G que proporcionan conectividad a la mayoría de los teléfonos celulares actuales.</p>
+        </div> 
+
         
-        <div class="service">
+        <div class="service en">
             <h2>What is Fiber?</h2>
             <p>Fiber-optic communication is a method of transmitting information from one place to another by sending pulses of infrared light through an optical fiber. The light is a form of carrier wave that is modulated to carry information.</p>
         </div> <!-- close service -->
+
+         <div class="service es" style="display:none;">
+            <h2>Que es Fibra Optica?</h2>
+            <p>La comunicación de fibra óptica es un método de transmitir información de un lugar a otro mediante el envío de pulsos de luz infrarroja a través de una fibra óptica. La luz es una forma de onda portadora que se modula para llevar información.</p>
+        </div> <!-- close service -->
+
+
     
-        <div class="service">
-            <h2>Why Choose AT&T?</h2>
+        <div class="service en">
+            <h2>Por que AT&T?</h2>
             <p>People are on the move and the need for connectivity moves with us. AT&T 5G helps communities stay connected to fast, reliable and secure mobile experiences to help simplify, enhance and change lives.  </p>
         </div> <!-- close service -->
+
+        <div class="service es" style="display:none;">
+            <h2>Por que AT&T?</h2>
+            <p>Las personas están en constante movimiento y la necesidad de conectividad nos acompaña. La red 5G de AT&T ayuda a las comunidades a mantenerse conectadas a experiencias móviles rápidas, confiables y seguras para simplificar, mejorar y cambiar vidas. </p>
+        </div> <!-- close service -->
+
     </div> <!-- close services -->
     <!--button to sign up-->
-    <a href="https://www.att.com/why-att/" target="_blank" class="btn">Learn More</a>
+    <a href="https://www.att.com/why-att/" target="_blank" class="btn en">Learn More</a>
+    <a href="https://www.att.com/why-att/" target="_blank" class="btn es" style="display:none;">Aprenda mas al respecto</a>
+
 </section>
 
 <!--Section For Social Media-->
 
-    <h3 class="section__title">Check Out Our Social Media!</h3>
+    <h3 class="section__title en">Check Out Our Social Media!</h3>
+    <h3 class="section__title es" style="display:none;">Visite nuestras redes sociales!</h3>
+
     <div id="social-media-container" style="width: 100%; height: 300px;">
         <div id="social-media">
             <!--Instagram-->
@@ -110,4 +181,6 @@
 </body>
 
 </html>
+
+
 
