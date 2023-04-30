@@ -9,12 +9,35 @@ body{
 h1, h2, h3{
     font-family: ATTFont;
     color: #009edb;
+    text-align: center;
+    font-size: large;
 }
 p, a {
     font-family: ATTFont;
 
 }
 
+th {
+  text-align: center;
+  font-family: ATTFont;
+  color: #009edb;
+  font-size: larger;
+}
+tr {
+  text-align: center;
+  font-family: ATTFont;
+  color: black;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.header {
+  width: 50%;
+  text-align: center;
+}
 
 
 /* nav bar styles */
