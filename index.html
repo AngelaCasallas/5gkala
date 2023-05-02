@@ -1,468 +1,403 @@
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AT&T 5G Technology</title>
-    <!-- adding ATT font -->
 
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
-      type="text/css"
-    />
-    <script src="turf.min.js" charset="utf-8"></script>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AT&T 5G Technology</title>
+  <!-- adding ATT font -->
 
-    <script>
-      function changeLanguage() {
-        var langSelect = document.getElementById("lang-select");
-        var lang = langSelect.value;
-        var englishElems = document.querySelectorAll(".en");
-        var spanishElems = document.querySelectorAll(".es");
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet" />
+  <script
+    src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css"
+    type="text/css" />
+  <script src="turf.min.js" charset="utf-8"></script>
 
-        if (lang === "en") {
-          hideElements(spanishElems);
-          showElements(englishElems);
-        } else {
-          hideElements(englishElems);
-          showElements(spanishElems);
-        }
+  <script>
+    function changeLanguage() {
+      var langSelect = document.getElementById("lang-select");
+      var lang = langSelect.value;
+      var englishElems = document.querySelectorAll(".en");
+      var spanishElems = document.querySelectorAll(".es");
+
+      if (lang === "en") {
+        hideElements(spanishElems);
+        showElements(englishElems);
+      } else {
+        hideElements(englishElems);
+        showElements(spanishElems);
       }
+    }
 
-      function hideElements(elems) {
-        for (var i = 0; i < elems.length; i++) {
-          elems[i].style.display = "none";
-        }
+    function hideElements(elems) {
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].style.display = "none";
       }
+    }
 
-      function showElements(elems) {
-        for (var i = 0; i < elems.length; i++) {
-          elems[i].style.display = "block";
-        }
+    function showElements(elems) {
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].style.display = "block";
       }
-    </script>
-    <style>
-      #lang-select {
-        float: right;
-      }
-    </style>
-  </head>
-  <body>
-    <select id="lang-select" onchange="changeLanguage()">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-    </select>
-    <br />
+    }
+  </script>
+  <style>
+    #lang-select {
+      float: right;
+    }
+  </style>
+</head>
 
-    <!-- simple navigation -->
-    <nav>
-      <ul>
-        <li>
-          <a class="nav-link en" href="https://www.att.com/" target="_blank"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-link en"
-            href="https://www.att.com/connecttochange/"
-            target="_blank"
-            >Why AT&T</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-link en"
-            href="https://www.att.com/support/"
-            target="_blank"
-            >Support</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-link en"
-            href="https://www.att.com/support/contact-us/"
-            target="_blank"
-            >Contact</a
-          >
-        </li>
-      </ul>
+<body>
+  <select id="lang-select" onchange="changeLanguage()">
+    <option value="en">English</option>
+    <option value="es">Español</option>
+  </select>
+  <br />
 
-      <ul>
-        <li>
-          <a
-            class="nav-link es"
-            style="display: none"
-            href="https://www.att.com/"
-            target="_blank"
-            >Inicio</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-link es"
-            style="display: none"
-            href="https://www.att.com/connecttochange/"
-            target="_blank"
-            >Por que AT&T</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-link es"
-            style="display: none"
-            href="https://www.att.com/support/"
-            target="_blank"
-            >Soporte</a
-          >
-        </li>
-        <li>
-          <a
-            class="nav-link es"
-            style="display: none"
-            href="https://www.att.com/support/contact-us/"
-            target="_blank"
-            >Contacto</a
-          >
-        </li>
-      </ul>
-    </nav>
+  <!-- simple navigation -->
+  <nav>
+    <ul>
+      <li>
+        <a class="nav-link en" href="https://www.att.com/" target="_blank">Home</a>
+      </li>
+      <li>
+        <a class="nav-link en" href="https://www.att.com/connecttochange/" target="_blank">Why AT&T</a>
+      </li>
+      <li>
+        <a class="nav-link en" href="https://www.att.com/support/" target="_blank">Support</a>
+      </li>
+      <li>
+        <a class="nav-link en" href="https://www.att.com/support/contact-us/" target="_blank">Contact</a>
+      </li>
+    </ul>
 
-    <!-- simple navigation html ends -->
+    <ul>
+      <li>
+        <a class="nav-link es" style="display: none" href="https://www.att.com/" target="_blank">Inicio</a>
+      </li>
+      <li>
+        <a class="nav-link es" style="display: none" href="https://www.att.com/connecttochange/" target="_blank">Por que
+          AT&T</a>
+      </li>
+      <li>
+        <a class="nav-link es" style="display: none" href="https://www.att.com/support/" target="_blank">Soporte</a>
+      </li>
+      <li>
+        <a class="nav-link es" style="display: none" href="https://www.att.com/support/contact-us/"
+          target="_blank">Contacto</a>
+      </li>
+    </ul>
+  </nav>
 
-    <h1 class="section__title en" style="text-align: center">
-      Welcome to AT&T 5G Technology!
-    </h1>
-    <h1 class="section__title es" style="text-align: center; display: none">
-      Bienvenido a la tecnologia 5G de AT&T!
-    </h1>
+  <!-- simple navigation html ends -->
 
-    <p class="en" style="text-align: center">
-      This is the 5G coverage in your selected location.
-    </p>
-    <p class="es" style="text-align: center; display: none">
-      Covertura 5G segun el lugar elegido.
-    </p>
+  <h1 class="section__title en" style="text-align: center">
+    Welcome to AT&T 5G Technology!
+  </h1>
+  <h1 class="section__title es" style="text-align: center; display: none">
+    Bienvenido a la tecnologia 5G de AT&T!
+  </h1>
 
-    <div id="map" style="width: 100%; height: 500px; margin: 0 auto"></div>
-    <input
-      id="geocoder"
-      type="text"
-      placeholder="Search Location"
-      style="margin: 10px; width: 300px"
-    />
+  <p class="en" style="text-align: center">
+    This is the 5G coverage in your selected location.
+  </p>
+  <p class="es" style="text-align: center; display: none">
+    Covertura 5G segun el lugar elegido.
+  </p>
+  <!-- search button begins -->
+  <input id="geocoder" type="text" placeholder="Search Location" style="margin: 10px; width: 300px" />
 
-    <button id="search-button" style="margin: 10px">Search</button>
+  <button id="search-button" style="margin: 10px">Search</button>
+  <!-- search button ends -->
+  
+  <!-- map starts -->
+  <div id="map" style="width: 100%; height: 500px; margin: 0 auto"></div>
+  <!-- map ends -->
 
-    <script>
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoiaXBvbWFqdWxjYSIsImEiOiJja2FzdGpzODcwNHNtMzBwaHVjM2lrYmN6In0.g4bNxSg91fcNoGqh47zYuw";
-      var map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/mapbox/streets-v11",
+  <script>
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoiaXBvbWFqdWxjYSIsImEiOiJja2FzdGpzODcwNHNtMzBwaHVjM2lrYmN6In0.g4bNxSg91fcNoGqh47zYuw";
+    var map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/streets-v11",
+    });
+
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var lng = position.coords.longitude;
+      var lat = position.coords.latitude;
+
+      map.setCenter([lng, lat]);
+      map.setZoom(8);
+
+      new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+      var center = [lng, lat];
+      // Add a circle area around user's location
+      var options = { steps: 64, units: "kilometers", properties: {} };
+      var center = turf.point([lng, lat]);
+      var radius = 50; // in kilometers
+      var circle = turf.circle(center, radius, options);
+      var sourceID = Math.random().toString(36).substr(2, 9);
+      map.addSource(sourceID, {
+        type: "geojson",
+        data: circle,
       });
-
-      navigator.geolocation.getCurrentPosition(function (position) {
-        var lng = position.coords.longitude;
-        var lat = position.coords.latitude;
-
-        map.setCenter([lng, lat]);
-        map.setZoom(8);
-
-        new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
-        var center = [lng, lat];
-        // Add a circle area around user's location
-        var options = { steps: 64, units: "kilometers", properties: {} };
-        var center = turf.point([lng, lat]);
-        var radius = 50; // in kilometers
-        var circle = turf.circle(center, radius, options);
-        var sourceID = Math.random().toString(36).substr(2, 9);
-        map.addSource(sourceID, {
-          type: "geojson",
-          data: circle,
-        });
-        var layerID = Math.random().toString(36).substr(2, 9);
-        map.addLayer({
-          id: layerID,
-          type: "fill",
-          source: sourceID,
-          paint: {
-            "fill-color": "#FFA07A",
-            "fill-opacity": 0.3,
-          },
-        });
-      });
-
-      var geocoder = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-        marker: {
-          color: "orange",
+      var layerID = Math.random().toString(36).substr(2, 9);
+      map.addLayer({
+        id: layerID,
+        type: "fill",
+        source: sourceID,
+        paint: {
+          "fill-color": "#FFA07A",
+          "fill-opacity": 0.3,
         },
-        placeholder: "Search New Location",
+      });
+    });
+
+    var geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      marker: {
+        color: "orange",
+      },
+      placeholder: "Search New Location",
+    });
+
+    // Add geocoder to the page
+    document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
+
+    // Add event listener to search button
+    document
+      .getElementById("search-button")
+      .addEventListener("click", function () {
+        // Get the current value of the input field
+        var query = document.getElementById("geocoder").value;
+        // Use the geocoder to search for the query
+        geocoder.query(query);
       });
 
-      // Add geocoder to the page
-      document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
+    // Listen for the 'result' event from the geocoder
+    geocoder.on("result", function (ev) {
+      // Get the coordinates of the search result
+      var lng = ev.result.center[0];
+      var lat = ev.result.center[1];
 
-      // Add event listener to search button
-      document
-        .getElementById("search-button")
-        .addEventListener("click", function () {
-          // Get the current value of the input field
-          var query = document.getElementById("geocoder").value;
-          // Use the geocoder to search for the query
-          geocoder.query(query);
-        });
+      // Set the map's center and zoom level based on the search result
+      map.setCenter([lng, lat]);
+      map.setZoom(8);
 
-      // Listen for the 'result' event from the geocoder
-      geocoder.on("result", function (ev) {
-        // Get the coordinates of the search result
-        var lng = ev.result.center[0];
-        var lat = ev.result.center[1];
+      // Add a marker at the search result location
+      new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
 
-        // Set the map's center and zoom level based on the search result
-        map.setCenter([lng, lat]);
-        map.setZoom(8);
-
-        // Add a marker at the search result location
-        new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
-
-         // Add a circle area around user's location
-         var options = { steps: 64, units: "kilometers", properties: {} };
-        var center = turf.point([lng, lat]);
-        var radius = 50; // in kilometers
-        var circle = turf.circle(center, radius, options);
-        sourceID = Math.random().toString(36).substr(2, 9);
-        map.addSource(sourceID, {
-          type: "geojson",
-          data: circle,
-        });
-        layerID = Math.random().toString(36).substr(2, 9);
-        map.addLayer({
-          id: layerID,
-          type: "fill",
-          source: sourceID,
-          paint: {
-            "fill-color": "#FFA07A",
-            "fill-opacity": 0.3,
-          },
-        });
-
-        
+      // Add a circle area around user's location
+      var options = { steps: 64, units: "kilometers", properties: {} };
+      var center = turf.point([lng, lat]);
+      var radius = 50; // in kilometers
+      var circle = turf.circle(center, radius, options);
+      sourceID = Math.random().toString(36).substr(2, 9);
+      map.addSource(sourceID, {
+        type: "geojson",
+        data: circle,
       });
-    </script>
+      layerID = Math.random().toString(36).substr(2, 9);
+      map.addLayer({
+        id: layerID,
+        type: "fill",
+        source: sourceID,
+        paint: {
+          "fill-color": "#FFA07A",
+          "fill-opacity": 0.3,
+        },
+      });
 
-    <!-- section describing the services AT&T offers -->
 
-    <section class="the--services">
-      <h1 class="section__title en">Info about AT&T</h1>
-      <h1 class="section__title es" style="display: none">
-        Infomacion acerca de AT&T
-      </h1>
+    });
+  </script>
 
-      <div class="services">
-        <div class="service en">
-          <h2>What is 5G?</h2>
-          <p>
-            5G is the fifth-generation technology standard for broadband
-            cellular networks, which cellular phone companies began deploying
-            worldwide in 2019, and is the planned successor to the 4G networks
-            which provide connectivity to most current cellphones.
-          </p>
-        </div>
-        <!-- close service -->
+  <!-- section describing the services AT&T offers -->
 
-        <div class="service es" style="display: none">
-          <h2>Que es 5G?</h2>
-          <p>
-            5G es el estándar de tecnología de quinta generación para redes
-            celulares de banda ancha, que las compañías de telefonía celular
-            comenzaron a implementar en todo el mundo en 2019, y es el sucesor
-            planificado de las redes 4G que proporcionan conectividad a la
-            mayoría de los teléfonos celulares actuales.
-          </p>
-        </div>
+  <section class="the--services">
+    <h1 class="section__title en">Info about AT&T</h1>
+    <h1 class="section__title es" style="display: none">
+      Infomacion acerca de AT&T
+    </h1>
 
-        <div class="service en">
-          <h2>What is Fiber?</h2>
-          <p>
-            Fiber-optic communication is a method of transmitting information
-            from one place to another by sending pulses of infrared light
-            through an optical fiber. The light is a form of carrier wave that
-            is modulated to carry information.
-          </p>
-        </div>
-        <!-- close service -->
-
-        <div class="service es" style="display: none">
-          <h2>Que es Fibra Optica?</h2>
-          <p>
-            La comunicación de fibra óptica es un método de transmitir
-            información de un lugar a otro mediante el envío de pulsos de luz
-            infrarroja a través de una fibra óptica. La luz es una forma de onda
-            portadora que se modula para llevar información.
-          </p>
-        </div>
-        <!-- close service -->
-
-        <div class="service en">
-          <h2>Why AT&T?</h2>
-          <p>
-            People are on the move and the need for connectivity moves with us.
-            AT&T 5G helps communities stay connected to fast, reliable and
-            secure mobile experiences to help simplify, enhance and change
-            lives.
-          </p>
-        </div>
-        <!-- close service -->
-
-        <div class="service es" style="display: none">
-          <h2>Por que AT&T?</h2>
-          <p>
-            Las personas están en constante movimiento y la necesidad de
-            conectividad nos acompaña. La red 5G de AT&T ayuda a las comunidades
-            a mantenerse conectadas a experiencias móviles rápidas, confiables y
-            seguras para simplificar, mejorar y cambiar vidas.
-          </p>
-        </div>
-        <!-- close service -->
+    <div class="services">
+      <div class="service en">
+        <h2>What is 5G?</h2>
+        <p>
+          5G is the fifth-generation technology standard for broadband
+          cellular networks, which cellular phone companies began deploying
+          worldwide in 2019, and is the planned successor to the 4G networks
+          which provide connectivity to most current cellphones.
+        </p>
       </div>
-      <!-- close services -->
-      <!--button to sign up-->
-      <a href="https://www.att.com/why-att/" target="_blank" class="btn en"
-        >Learn More</a
-      >
-      <a
-        href="https://www.att.com/why-att/"
-        target="_blank"
-        class="btn es"
-        style="display: none"
-        >Aprenda mas al respecto</a
-      >
-    </section>
-    
-    <!--Section for 4G vs 5G Comparison-->
+      <!-- close service -->
 
-    <section class="4G vs 5G Comparison">
-      <table style="width: 100%; margin: 10 auto;">
-        <h1 class="section_title en" style="font-size: 36;"> 4G vs 5G Comparison</h1>
-        <h1 class="section_title es" style="display:none; font-size: 36"> Comparación de 4G y 5G</h1>
-        <tr class="en">
-          <th></th>
-          <th>4G</th>
-          <th>5G</th>
-        </tr>
-        <tr class="es" style="display:none;">
-          <th></th>
-          <th>4G</th>
-          <th>5G</th>
-        </tr>
-        <tr class="en">
-          <td><b>Speed</b></td>
-          <td>Up to 100 Mbps</td>
-          <td>Up to 10 Gbps</td>
-        </tr>
-        <tr class="es" style="display:none;">
-          <td><b>Velocidad</b></td>
-          <td>Hasta 100 Mbps</td>
-          <td>Hasta 10 Gbps</td>
-        </tr>
-        <tr class="en">
-          <td><b>Latency</b></td>
-          <td>30-50 ms</td>
-          <td>1-2 ms</td>
-        </tr>
-        <tr class="es" style="display:none;">
-          <td><b>Latencia</b></td>
-          <td>30-50 ms</td>
-          <td>1-2 ms</td>
-        </tr>
-        <tr class="en">
-          <td><b>Capacity</b></td>
-          <td>1000 devices per sq km</td>
-          <td>1 million devices per sq km</td>
-        </tr>
-        <tr class="es" style="display:none;">
-          <td><b>Capacidad</b></td>
-          <td>1000 dispositivos por km²</td>
-          <td>1 millón de dispositivos por km²</td>
-        </tr>
-        <tr class="en">
-          <td><b>Frequency</b></td>
-          <td>1-5 GHz</td>
-          <td>24-86 GHz</td>
-        </tr>
-        <tr class="es" style="display:none;">
-          <td><b>Frecuencia</b></td>
-          <td>1-5 GHz</td>
-          <td>24-86 GHz</td>
-        </tr>
-      </table>
-      
-    </section>
-
-    <!--Section For Social Media-->
-
-    <h3 class="section__title en">Check Out Our Social Media!</h3>
-    <h3 class="section__title es" style="display: none">
-      Visite nuestras redes sociales!
-    </h3>
-
-    <div id="social-media-container" style="width: 100%; height: 300px">
-      <div id="social-media">
-        <!--Instagram-->
-        <a href="https://www.instagram.com/att/" target="_blank">
-          <img
-            class="social-icon"
-            src="https://cdn4.iconfinder.com/data/icons/social-media-2210/24/Instagram-512.png"
-            alt="Instagram Logo"
-          />
-        </a>
-        <!--Facebook-->
-        <a href="https://www.facebook.com/ATT/" target="_blank">
-          <img
-            class="social-icon"
-            src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
-            alt="Facebook Logo"
-          />
-        </a>
+      <div class="service es" style="display: none">
+        <h2>Que es 5G?</h2>
+        <p>
+          5G es el estándar de tecnología de quinta generación para redes
+          celulares de banda ancha, que las compañías de telefonía celular
+          comenzaron a implementar en todo el mundo en 2019, y es el sucesor
+          planificado de las redes 4G que proporcionan conectividad a la
+          mayoría de los teléfonos celulares actuales.
+        </p>
       </div>
+
+      <div class="service en">
+        <h2>What is Fiber?</h2>
+        <p>
+          Fiber-optic communication is a method of transmitting information
+          from one place to another by sending pulses of infrared light
+          through an optical fiber. The light is a form of carrier wave that
+          is modulated to carry information.
+        </p>
+      </div>
+      <!-- close service -->
+
+      <div class="service es" style="display: none">
+        <h2>Que es Fibra Optica?</h2>
+        <p>
+          La comunicación de fibra óptica es un método de transmitir
+          información de un lugar a otro mediante el envío de pulsos de luz
+          infrarroja a través de una fibra óptica. La luz es una forma de onda
+          portadora que se modula para llevar información.
+        </p>
+      </div>
+      <!-- close service -->
+
+      <div class="service en">
+        <h2>Why AT&T?</h2>
+        <p>
+          People are on the move and the need for connectivity moves with us.
+          AT&T 5G helps communities stay connected to fast, reliable and
+          secure mobile experiences to help simplify, enhance and change
+          lives.
+        </p>
+      </div>
+      <!-- close service -->
+
+      <div class="service es" style="display: none">
+        <h2>Por que AT&T?</h2>
+        <p>
+          Las personas están en constante movimiento y la necesidad de
+          conectividad nos acompaña. La red 5G de AT&T ayuda a las comunidades
+          a mantenerse conectadas a experiencias móviles rápidas, confiables y
+          seguras para simplificar, mejorar y cambiar vidas.
+        </p>
+      </div>
+      <!-- close service -->
     </div>
+    <!-- close services -->
+    <!--button to sign up-->
+    <a href="https://www.att.com/why-att/" target="_blank" class="btn en">Learn More</a>
+    <a href="https://www.att.com/why-att/" target="_blank" class="btn es" style="display: none">Aprenda mas al
+      respecto</a>
+  </section>
 
-    <!-- footer -->
+  <!--Section for 4G vs 5G Comparison-->
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2023 AT&amp;T. All rights reserved.</p>
-        <ul class="footer-list">
-          <li>
-            <a class="footer-link" href="https://about.att.com/privacy.html"
-              >Privacy Policy</a
-            >
-          </li>
-          <li>
-            <a
-              class="footer-link"
-              href="https://www.att.com/legal/terms.attWebsiteTermsOfUse.html"
-              >Terms of Use</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.att.com/support/contact-us/"
-              class="footer-link"
-              href="#"
-              >Contact Us</a
-            >
-          </li>
-        </ul>
-      </div>
-    </footer>
-  </body>
+  <section class="4G vs 5G Comparison">
+    <table style="width: 100%; margin: 10 auto;">
+      <h1 class="section_title en" style="font-size: 36;"> 4G vs 5G Comparison</h1>
+      <h1 class="section_title es" style="display:none; font-size: 36"> Comparación de 4G y 5G</h1>
+      <tr class="en">
+        <th></th>
+        <th>4G</th>
+        <th>5G</th>
+      </tr>
+      <tr class="es" style="display:none;">
+        <th></th>
+        <th>4G</th>
+        <th>5G</th>
+      </tr>
+      <tr class="en">
+        <td><b>Speed</b></td>
+        <td>Up to 100 Mbps</td>
+        <td>Up to 10 Gbps</td>
+      </tr>
+      <tr class="es" style="display:none;">
+        <td><b>Velocidad</b></td>
+        <td>Hasta 100 Mbps</td>
+        <td>Hasta 10 Gbps</td>
+      </tr>
+      <tr class="en">
+        <td><b>Latency</b></td>
+        <td>30-50 ms</td>
+        <td>1-2 ms</td>
+      </tr>
+      <tr class="es" style="display:none;">
+        <td><b>Latencia</b></td>
+        <td>30-50 ms</td>
+        <td>1-2 ms</td>
+      </tr>
+      <tr class="en">
+        <td><b>Capacity</b></td>
+        <td>1000 devices per sq km</td>
+        <td>1 million devices per sq km</td>
+      </tr>
+      <tr class="es" style="display:none;">
+        <td><b>Capacidad</b></td>
+        <td>1000 dispositivos por km²</td>
+        <td>1 millón de dispositivos por km²</td>
+      </tr>
+      <tr class="en">
+        <td><b>Frequency</b></td>
+        <td>1-5 GHz</td>
+        <td>24-86 GHz</td>
+      </tr>
+      <tr class="es" style="display:none;">
+        <td><b>Frecuencia</b></td>
+        <td>1-5 GHz</td>
+        <td>24-86 GHz</td>
+      </tr>
+    </table>
+
+  </section>
+
+  <!--Section For Social Media-->
+
+  <h3 class="section__title en">Check Out Our Social Media!</h3>
+  <h3 class="section__title es" style="display: none">
+    Visite nuestras redes sociales!
+  </h3>
+
+  <div id="social-media-container" style="width: 100%; height: 300px">
+    <div id="social-media">
+      <!--Instagram-->
+      <a href="https://www.instagram.com/att/" target="_blank">
+        <img class="social-icon" src="https://cdn4.iconfinder.com/data/icons/social-media-2210/24/Instagram-512.png"
+          alt="Instagram Logo" />
+      </a>
+      <!--Facebook-->
+      <a href="https://www.facebook.com/ATT/" target="_blank">
+        <img class="social-icon" src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png"
+          alt="Facebook Logo" />
+      </a>
+    </div>
+  </div>
+
+  <!-- footer -->
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 AT&amp;T. All rights reserved.</p>
+      <ul class="footer-list">
+        <li>
+          <a class="footer-link" href="https://about.att.com/privacy.html">Privacy Policy</a>
+        </li>
+        <li>
+          <a class="footer-link" href="https://www.att.com/legal/terms.attWebsiteTermsOfUse.html">Terms of Use</a>
+        </li>
+        <li>
+          <a href="https://www.att.com/support/contact-us/" class="footer-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
 </html>
